@@ -61,25 +61,6 @@ namespace IsilonAPI
             return true;
         }
 
-        protected string Get(string resource)
-        {
-            // Create a web request object pointing to the Isilon server and Resource String
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(IsilonUrl + resource);
-
-            // Add the Authroization header for Basic authentication
-            request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(new ASCIIEncoding().GetBytes(Username + ":" + Password)));
-
-            // Send the request to the Isilon cluster and get there response
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            StreamReader reader = new StreamReader(response.GetResponseStream());
-            
-            string content = reader.ReadToEnd();
-            response.Close();
-
-            return content;
-        }
-
         protected T Get<T>(string resource)
         {
             // Create a web request object pointing to the Isilon server and Resource String

@@ -17,7 +17,7 @@ namespace IsilonAPI.Requests
 
         public string GetAccessZonesSummary()
         {
-            return Get("/platform/1/zones-summary");
+            return Get<string>("/platform/1/zones-summary");
         }
     }
 }
