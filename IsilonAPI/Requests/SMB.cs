@@ -94,7 +94,7 @@ namespace IsilonAPI.Requests
 
         public void CreateShare(string name, string path)
         {
-            throw new Exception("CreateShare not yet functioning.. Not well documented.. Cough Cough");
+            throw new Exception("CreateShare not yet functioning.");
 
             Share share = new Share();
             share.Name = name;
@@ -105,7 +105,6 @@ namespace IsilonAPI.Requests
 
         public void ModifyShare(Share share)
         {
-            // Waiting to figure out how to create a share before I implement this.
             throw new Exception("todo");
         }
 
