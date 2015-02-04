@@ -35,20 +35,16 @@ namespace IsilonAPI
 {
     public abstract class Core
     {
-        protected string Username;
-        protected string Password;
-        protected string IsilonUrl;
+        protected IsilonService _Service;
 
         // public string AuthToken -- todo, Basic/Token authentication
 
-        public Core(string username, string password, string isilonUrl, bool IgnoreInvalidCerts)
+        public Core(IsilonService service)
         {
-            Username = username;
-            Password = password;
-            IsilonUrl = isilonUrl;
+            _Service = service;
 
             // If we are to ignore invalid certifications.. Mainly used for non-production systems.
-            if(IgnoreInvalidCerts)
+            if(_Service.IgnoreInvalidCerts)
             {
                 ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(ValidateRemoteCertificate);
             }
@@ -57,17 +53,14 @@ namespace IsilonAPI
         // callback used to validate the certificate in an SSL conversation
         private static bool ValidateRemoteCertificate(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors policyErrors)
         {
-            // This is a hack. Please don't use for production systems.
+            // Dont use for production systems
             return true;
         }
 
         protected T Get<T>(string resource)
         {
             // Create a web request object pointing to the Isilon server and Resource String
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(IsilonUrl + resource);
-       
-            // Add the Authroization header for Basic authentication
-            request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(new ASCIIEncoding().GetBytes(Username + ":" + Password)));
+            HttpWebRequest request = _Service.CreateRequest(resource);
 
             // Send the request to the Isilon cluster and get there response
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -83,20 +76,17 @@ namespace IsilonAPI
             {
                 DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
                 content = serializer.ReadObject(response.GetResponseStream());
-                response.Close();
             }
-            
+
+            response.Close();
             return (T)content;
         }
 
         protected void Put<T>(string resource, T body)
         {
             // Create a web request object pointing to the Isilon server and Resource String
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(IsilonUrl + resource);
+            HttpWebRequest request = _Service.CreateRequest(resource);
             request.Method = "PUT";
-
-            // Add the Authroization header for Basic authentication
-            request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(new ASCIIEncoding().GetBytes(Username + ":" + Password)));
 
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
             serializer.WriteObject(request.GetRequestStream(), (T)body);
@@ -106,14 +96,25 @@ namespace IsilonAPI
             response.Close();
         }
 
+        protected void Post<T>(string resource, T body)
+        {
+            // Create a web request object pointing to the Isilon server and Resource String
+            HttpWebRequest request = _Service.CreateRequest(resource);
+            request.Method = "POST";
+
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
+            serializer.WriteObject(request.GetRequestStream(), (T)body);
+
+            // Send the request to the Isilon cluster and get there response
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            response.Close();
+        }
+
         protected void Delete(string resource)
         {
             // Create a web request object pointing to the Isilon server and Resource String
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(IsilonUrl + resource);
+            HttpWebRequest request = _Service.CreateRequest(resource);
             request.Method = "DELETE";
-
-            // Add the Authroization header for Basic authentication
-            request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(new ASCIIEncoding().GetBytes(Username + ":" + Password)));
 
             // Send the request to the Isilon cluster and get there response
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();

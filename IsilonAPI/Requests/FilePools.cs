@@ -10,8 +10,8 @@ namespace IsilonAPI.Requests
 {
     public class FilePools : Core
     {
-        public FilePools(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public FilePools(IsilonService service)
+            : base(service)
         {
 
         }

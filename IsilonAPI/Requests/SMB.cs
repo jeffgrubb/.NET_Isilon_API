@@ -17,8 +17,8 @@ namespace IsilonAPI.Requests
             None
         };
 
-        public SMB(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public SMB(IsilonService service)
+            : base(service)
         {
 
         }
@@ -92,17 +92,25 @@ namespace IsilonAPI.Requests
             return result.Shares;
         }
 
-        public void CreateShare(string name, string path)
+        public Share CreateShare(string name, string path)
         {
-            throw new Exception("CreateShare not yet functioning.");
-
             Share share = new Share();
             share.Name = name;
             share.Path = path;
 
-            //RequestResult result = RunResult("/platform/1/protocols/smb/shares/", "POST", share, typeof(Share));
+            Post<Share>("/platform/1/protocols/smb/shares/", share);
+
+            share = GetSMBShare(name)[0];
+
+            return share;
         }
 
+        public string GetIFS()
+        {
+            return Get<string>("/platform/1/protocols/smb/shares/TestCreate");
+        }
+
+        // move to share class
         public void ModifyShare(Share share)
         {
             throw new Exception("todo");

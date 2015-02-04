@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core.cs" />
+    <Compile Include="IsilonService.cs" />
     <Compile Include="Models\AccessPoints\AccessControlList.cs" />
     <Compile Include="Models\AccessPoints\AccessPoint.cs" />
     <Compile Include="Models\AccessPoints\AccessPointsResponse.cs" />

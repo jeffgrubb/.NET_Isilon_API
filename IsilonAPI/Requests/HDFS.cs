@@ -8,8 +8,8 @@ namespace IsilonAPI.Requests
 {
     public class HDFS : Core
     {
-        public HDFS(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public HDFS(IsilonService service)
+            : base(service)
         {
 
         }

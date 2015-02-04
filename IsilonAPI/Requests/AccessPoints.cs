@@ -9,8 +9,8 @@ namespace IsilonAPI.Requests
 {
     public class AccessPoints : Core
     {
-        public AccessPoints(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public AccessPoints(IsilonService service)
+            : base(service)
         {
 
         }

@@ -9,8 +9,8 @@ namespace IsilonAPI.Requests
 {
     public class AccessZones : Core
     {
-        public AccessZones(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public AccessZones(IsilonService service)
+            : base(service)
         {
 
         }

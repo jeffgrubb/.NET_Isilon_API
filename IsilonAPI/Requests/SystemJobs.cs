@@ -8,8 +8,8 @@ namespace IsilonAPI.Requests
 {
     public class SystemJobs : Core
     {
-        public SystemJobs(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public SystemJobs(IsilonService service)
+            : base(service)
         {
 
         }

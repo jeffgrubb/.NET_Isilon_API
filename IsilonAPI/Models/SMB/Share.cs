@@ -12,88 +12,88 @@ namespace IsilonAPI.Models.SMB
     [DataContract]
     public class Share
     {
-        [DataMember(Name = "access_based_enumeration", EmitDefaultValue = true)]
+        [DataMember(Name = "access_based_enumeration", EmitDefaultValue = false)]
         public bool AccessBasedEnumeration;
 
-        [DataMember(Name = "access_based_enumeration_root_only", EmitDefaultValue = true)]
+        [DataMember(Name = "access_based_enumeration_root_only", EmitDefaultValue = false)]
         public bool AccessBasedEnumerationRootOnly;
 
-        [DataMember(Name = "allow_variable_expansion", EmitDefaultValue = true)]
+        [DataMember(Name = "allow_variable_expansion", EmitDefaultValue = false)]
         public bool AllowVariableExpansion;
 
-        [DataMember(Name = "allow_delete_readonly", EmitDefaultValue = true)]
+        [DataMember(Name = "allow_delete_readonly", EmitDefaultValue = false)]
         public bool AllowDeleteReadonly;
 
-        [DataMember(Name = "allow_execute_always", EmitDefaultValue = true)]
+        [DataMember(Name = "allow_execute_always", EmitDefaultValue = false)]
         public bool AllowExecuteAlways;
 
-        [DataMember(Name = "auto_create_directory", EmitDefaultValue = true)]
+        [DataMember(Name = "auto_create_directory", EmitDefaultValue = false)]
         public bool AutoCreateDirectory;
 
-        [DataMember(Name = "browsable", EmitDefaultValue = true)]
+        [DataMember(Name = "browsable", EmitDefaultValue = false)]
         public bool Browsable;
 
-        [DataMember(Name = "change_notify", EmitDefaultValue = true)]
+        [DataMember(Name = "change_notify", EmitDefaultValue = false)]
         public string ChangeNotify;
 
-        [DataMember(Name = "create_permissions", EmitDefaultValue = true)]
+        [DataMember(Name = "create_permissions", EmitDefaultValue = false)]
         public string CreatePermissions;
 
-        [DataMember(Name = "csc_policy", EmitDefaultValue = true)]
+        [DataMember(Name = "csc_policy", EmitDefaultValue = false)]
         public string CscPolicy;
 
-        [DataMember(Name = "description", EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description;
 
-        [DataMember(Name = "directory_create_mask", EmitDefaultValue = true)]
+        [DataMember(Name = "directory_create_mask", EmitDefaultValue = false)]
         public int DirectoryCreateMask;
 
-        [DataMember(Name = "directory_create_mode", EmitDefaultValue = true)]
+        [DataMember(Name = "directory_create_mode", EmitDefaultValue = false)]
         public int DirectoryCreateMode;
 
-        [DataMember(Name = "file_create_mask", EmitDefaultValue = true)]
+        [DataMember(Name = "file_create_mask", EmitDefaultValue = false)]
         public int FileCreateMask;
 
-        [DataMember(Name = "file_create_mode", EmitDefaultValue = true)]
+        [DataMember(Name = "file_create_mode", EmitDefaultValue = false)]
         public int FileCreateMode;
 
-        [DataMember(Name = "hide_dot_files", EmitDefaultValue = true)]
+        [DataMember(Name = "hide_dot_files", EmitDefaultValue = false)]
         public bool HideDotFiles;
 
-        [DataMember(Name = "host_acl", EmitDefaultValue = true)]
+        [DataMember(Name = "host_acl", EmitDefaultValue = false)]
         public object[] HostAcl;
 
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id;
 
-        [DataMember(Name = "impersonate_guest", EmitDefaultValue = true)]
+        [DataMember(Name = "impersonate_guest", EmitDefaultValue = false)]
         public string ImpersonateGuest;
 
-        [DataMember(Name = "impersonate_user", EmitDefaultValue = true)]
+        [DataMember(Name = "impersonate_user", EmitDefaultValue = false)]
         public string ImpersonateUser;
 
-        [DataMember(Name = "inheritable_path_acl", EmitDefaultValue = true)]
+        [DataMember(Name = "inheritable_path_acl", EmitDefaultValue = false)]
         public bool InheritablePathAcl;
 
-        [DataMember(Name = "mangle_byte_start", EmitDefaultValue = true)]
+        [DataMember(Name = "mangle_byte_start", EmitDefaultValue = false)]
         public int MangleByteStart;
 
-        [DataMember(Name = "mangle_map", EmitDefaultValue = true)]
+        [DataMember(Name = "mangle_map", EmitDefaultValue = false)]
         public object[] MangleMap;
 
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name;
 
-        [DataMember(Name = "ntfs_acl_support", EmitDefaultValue = true)]
+        [DataMember(Name = "ntfs_acl_support", EmitDefaultValue = false)]
         public bool NtfsAclSupport;
 
-        [DataMember(Name = "opslock", EmitDefaultValue = true)]
+        [DataMember(Name = "opslock", EmitDefaultValue = false)]
         public bool OpsLock;
 
-        [DataMember(Name = "path", EmitDefaultValue = true)]
+        [DataMember(Name = "path", EmitDefaultValue = false)]
         public string Path;
 
-        [DataMember(Name = "permissions", EmitDefaultValue=true)]
+        [DataMember(Name = "permissions", EmitDefaultValue=false)]
         public Permission[] Permissions;
     }
 }

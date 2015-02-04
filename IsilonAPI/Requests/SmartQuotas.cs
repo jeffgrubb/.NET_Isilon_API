@@ -8,8 +8,8 @@ namespace IsilonAPI.Requests
 {
     public class SmartQuotas : Core
     {
-        public SmartQuotas(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public SmartQuotas(IsilonService service)
+            : base(service)
         {
 
         }

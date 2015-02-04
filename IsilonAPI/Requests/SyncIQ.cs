@@ -8,8 +8,8 @@ namespace IsilonAPI.Requests
 {
     public class SyncIQ : Core
     {
-         public SyncIQ(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public SyncIQ(IsilonService service)
+            : base(service)
         {
 
         }

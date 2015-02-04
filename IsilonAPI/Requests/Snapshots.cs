@@ -8,8 +8,8 @@ namespace IsilonAPI.Requests
 {
     public class Snapshots : Core
     {
-        public Snapshots(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public Snapshots(IsilonService service)
+            : base(service)
         {
 
         }

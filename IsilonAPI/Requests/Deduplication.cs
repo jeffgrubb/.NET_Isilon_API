@@ -9,8 +9,8 @@ namespace IsilonAPI.Requests
 {
     public class Deduplication : Core
     {
-        public Deduplication(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public Deduplication(IsilonService service)
+            : base(service)
         {
 
         }

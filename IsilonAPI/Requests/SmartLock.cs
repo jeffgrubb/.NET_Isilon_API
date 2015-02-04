@@ -8,8 +8,8 @@ namespace IsilonAPI.Requests
 {
     public class SmartLock : Core
     {
-        public SmartLock(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public SmartLock(IsilonService service)
+            : base(service)
         {
 
         }

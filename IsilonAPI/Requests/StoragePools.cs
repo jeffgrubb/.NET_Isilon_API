@@ -8,8 +8,8 @@ namespace IsilonAPI.Requests
 {
     public class StoragePools : Core
     {
-        public StoragePools(string Username, string Password, string IsilonUrl, bool IgnoreInvalidCerts)
-            : base(Username, Password, IsilonUrl, IgnoreInvalidCerts)
+        public StoragePools(IsilonService service)
+            : base(service)
         {
 
         }
