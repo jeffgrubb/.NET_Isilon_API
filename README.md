@@ -1,8 +1,9 @@
 # Summary
-
-# Install
+EMC Isilon is a scale-out NAS storage platform designed to be a powerful, simple, and efficient way to consolidate and manage enterprise data and applications. Isilon is a clustered storage system that consists of multiple independent nodes that are all integrated with the OneFS operating system. Nodes effectively pool all storage, compute, and network resources into a single entity capable of providing petabyte scale storage in a single namespace or filesystem. For organizations who wish to automate the administration tasks of OneFS, the platform provides a REST API. This project is a wrapper library written in C# .NET.
 
 # Using .NET Isilon API
+
+To use this code, download the project in its entirety and include a reference to the binary in your project. The entry points into the API are defined in the IsilonAPI.Requests namespace. For example, if your application requires automatically creating or modifying SMB shares, that functionality is located in the IsilonAPI.Requests.SMB class.
 
 # Contributing
 
