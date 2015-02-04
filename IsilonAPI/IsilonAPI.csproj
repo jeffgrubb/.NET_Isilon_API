@@ -64,7 +64,6 @@
     <Compile Include="Models\SMB\SharesSummaryResponse.cs" />
     <Compile Include="Requests\SystemJobs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestResult.cs" />
     <Compile Include="Requests\AccessPoints.cs" />
     <Compile Include="Requests\AccessZones.cs" />
     <Compile Include="Requests\ClusterStatistics.cs" />
