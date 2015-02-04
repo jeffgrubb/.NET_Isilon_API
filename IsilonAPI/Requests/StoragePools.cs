@@ -13,5 +13,60 @@ namespace IsilonAPI.Requests
         {
 
         }
+
+        public void GetStoragePoolSettings()
+        {
+
+        }
+
+        public void ModifyStoragePoolSettings()
+        {
+
+        }
+
+        public void GetStoragePoolTiers()
+        {
+
+        }
+
+        public void GetStoragePoolTier(string tier)
+        {
+
+        }
+
+        public void CreateStoragePoolTier()
+        { 
+
+        }
+
+        public void DeleteStoragePoolTiers()
+        {
+
+        }
+
+        public void DeleteStoragePoolTier(string tier)
+        {
+
+        }
+
+        public void GetStoragePoolNodePools()
+        {
+
+        }
+
+        public void GetStoragePoolNodePool(string name)
+        {
+
+        }
+
+        public void ModifyStoragePoolNodePool()
+        {
+
+        }
+
+        public void DeleteStoragePoolNodePool(string name)
+        {
+
+        }
     }
 }
