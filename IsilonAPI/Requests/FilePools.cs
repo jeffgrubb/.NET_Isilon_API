@@ -18,8 +18,7 @@ namespace IsilonAPI.Requests
 
         public string GetDefaultPolicy()
         {
-            RequestResult res = RunResult("/platform/1/filepool/default-policy");
-            return (string)res.Content;
+            return Get<string>("/platform/1/filepool/default-policy");
         }
 
         public void GetPolicies()

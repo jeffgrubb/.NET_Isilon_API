@@ -17,25 +17,25 @@ namespace IsilonAPI.Requests
 
         public DeduplicationStats GetDeduplicationStats()
         {
-            RequestResult result = RunResult("/platform/1/dedupe/dedupe-summary", typeof(DeduplicationStatsResponse));
-            return ((DeduplicationStatsResponse)result.Content).Stats;
+            DeduplicationStatsResponse result = Get<DeduplicationStatsResponse>("/platform/1/dedupe/dedupe-summary");
+            return result.Stats;
         }
 
         public DeduplicationSettings GetDeduplicationSettings()
         {
-            RequestResult result = RunResult("/platform/1/dedupe/settings", typeof(DeduplicationSettingsResponse));
-            return ((DeduplicationSettingsResponse)result.Content).Settings;
+            DeduplicationSettingsResponse result = Get<DeduplicationSettingsResponse>("/platform/1/dedupe/settings");
+            return result.Settings;
         }
 
         public void ModifyDeduplicationSettings(DeduplicationSettings settings)
         {
-            RequestResult result = RunResult("/platform/1/dedupe/settings", "PUT", settings, typeof(DeduplicationSettings));
+            Put<DeduplicationSettings>("/platform/1/dedupe/settings", settings);
         }
 
         public DeduplicationReports[] GetDeduplicationReports()
         {
-            RequestResult result = RunResult("/platform/1/dedupe/reports", typeof(DeduplicationReportsResponse));
-            return ((DeduplicationReportsResponse)result.Content).reports;
+            DeduplicationReportsResponse result = Get<DeduplicationReportsResponse>("/platform/1/dedupe/reports");
+            return result.reports;
         }
 
 

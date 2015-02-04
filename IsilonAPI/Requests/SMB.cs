@@ -25,14 +25,14 @@ namespace IsilonAPI.Requests
 
         public Share[] GetSMBShare(string ShareName)
         {
-            RequestResult result = RunResult("/platform/1/protocols/smb/shares/" + ShareName, typeof(SharesResponse));
-            return ((SharesResponse)result.Content).Shares;
+            SharesResponse result = Get<SharesResponse>("/platform/1/protocols/smb/shares/" + ShareName);
+            return result.Shares;
         }
 
         public SharesSummary GetSMBSharesSummary()
         {
-            RequestResult result = RunResult("/platform/1/protocols/smb/shares-summary", typeof(SharesSummaryResponse));
-            return ((SharesSummaryResponse)result.Content).Summary;
+            SharesSummaryResponse result = Get<SharesSummaryResponse>("/platform/1/protocols/smb/shares-summary");
+            return result.Summary;
         }
 
         public Share[] GetSMBShares(string Sort = null, string Zone = null, Scope scope = Scope.None, bool ResolveNames = false, bool Descending = false, int Limit = -1)
@@ -88,8 +88,8 @@ namespace IsilonAPI.Requests
 
             // todo - resume
 
-            RequestResult result = RunResult("/platform/1/protocols/smb/shares" + Parameters, typeof(SharesResponse));
-            return ((SharesResponse)result.Content).Shares;
+            SharesResponse result = Get<SharesResponse>("/platform/1/protocols/smb/shares" + Parameters);
+            return result.Shares;
         }
 
         public void CreateShare(string name, string path)
@@ -100,7 +100,7 @@ namespace IsilonAPI.Requests
             share.Name = name;
             share.Path = path;
 
-            RequestResult result = RunResult("/platform/1/protocols/smb/shares/", "POST", share, typeof(Share));
+            //RequestResult result = RunResult("/platform/1/protocols/smb/shares/", "POST", share, typeof(Share));
         }
 
         public void ModifyShare(Share share)
@@ -110,7 +110,7 @@ namespace IsilonAPI.Requests
 
         public void DeleteShare(string ShareName)
         {
-            RequestResult result = RunResult("/platform/1/protocols/smb/shares/" + ShareName, "DELETE");
+            Delete("/platform/1/protocols/smb/shares/" + ShareName);
         }
     }
 }

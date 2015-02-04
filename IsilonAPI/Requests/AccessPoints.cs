@@ -17,8 +17,8 @@ namespace IsilonAPI.Requests
 
         public AccessPoint[] GetAccessPoints()
         {
-            RequestResult res = RunResult("/namespace/", typeof(AccessPointsResponse));
-            return ((AccessPointsResponse)res.Content).AccessPoints;
+            AccessPointsResponse res = Get<AccessPointsResponse>("/namespace");
+            return res.AccessPoints;
         }
 
         public void CreateAccessPoint(string Name, string AbsolutePath)
@@ -26,12 +26,12 @@ namespace IsilonAPI.Requests
             AccessPoint point = new AccessPoint();
             point.Path = AbsolutePath;
 
-            RequestResult res = RunResult("/namespace/" + Name, "PUT", point, typeof(AccessPoint));
+            Put<AccessPoint>("/namespace/" + Name, point);
         }
 
         public void DeleteAccessPoint(string Name)
         {
-            RequestResult res = RunResult("/namespace/" + Name, "DELETE");
+            Delete("/namespace/" + Name);
         }
     }
 }
