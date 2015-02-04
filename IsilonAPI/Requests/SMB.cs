@@ -64,21 +64,21 @@ namespace IsilonAPI.Requests
                     case Scope.Effective: Parameters += "effective"; break;
                     case Scope.Default: Parameters += "default"; break; // Don't think this is necessary, but whatever.
                 }
-                pre += "&";
+                pre = "&";
             }
 
             // The resolve names parameter I believe will do additional ldap/AD queries to figure out more info about the trustee?
             if(ResolveNames)
             {
                 Parameters += pre + "resolve_names=true";
-                pre += "&";
+                pre = "&";
             }
 
             if(Descending)
             {
                 // The default is ascending, so only if the user specifies descending do i need to do anything
                 Parameters += pre + "dir=DESC";
-                pre += "&";
+                pre = "&";
             }
 
             if(Limit != -1)
