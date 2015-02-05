@@ -110,10 +110,10 @@ namespace IsilonAPI.Requests
             return Get<string>("/platform/1/protocols/smb/shares/TestCreate");
         }
 
-        // move to share class
+        // move to share class?
         public void ModifyShare(Share share)
         {
-            throw new Exception("todo");
+            Put<Share>("platform/1/protocols/smb/shares", share);
         }
 
         public void DeleteShare(string ShareName)
