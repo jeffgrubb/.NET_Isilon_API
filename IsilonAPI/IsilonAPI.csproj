@@ -49,7 +49,11 @@
     <Compile Include="Models\AccessPoints\AccessPointsResponse.cs" />
     <Compile Include="Models\AccessPoints\CreateACLRequest.cs" />
     <Compile Include="Models\AccessPoints\Trustee.cs" />
+    <Compile Include="Models\ClusterStatistics\Policy.cs" />
     <Compile Include="Models\AccessZones\Summary.cs" />
+    <Compile Include="Models\ClusterStatistics\Statistic.cs" />
+    <Compile Include="Models\ClusterStatistics\StatisticsKeys.cs" />
+    <Compile Include="Models\ClusterStatistics\StatisticsResults.cs" />
     <Compile Include="Models\Deduplication\DeduplicationReport.cs" />
     <Compile Include="Models\Deduplication\DeduplicationReports.cs" />
     <Compile Include="Models\Deduplication\DeduplicationReportsResponse.cs" />
@@ -80,7 +84,6 @@
     <Compile Include="Requests\SyncIQ.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\ClusterStatistics\" />
     <Folder Include="Models\HDFS\" />
     <Folder Include="Models\NFS\" />
     <Folder Include="Models\SmartLock\" />
