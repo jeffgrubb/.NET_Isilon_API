@@ -51,6 +51,8 @@
     <Compile Include="Models\AccessPoints\Trustee.cs" />
     <Compile Include="Models\ClusterStatistics\Policy.cs" />
     <Compile Include="Models\AccessZones\Summary.cs" />
+    <Compile Include="Models\ClusterStatistics\Protocol.cs" />
+    <Compile Include="Models\ClusterStatistics\ProtocolsResults.cs" />
     <Compile Include="Models\ClusterStatistics\Statistic.cs" />
     <Compile Include="Models\ClusterStatistics\StatisticsKeys.cs" />
     <Compile Include="Models\ClusterStatistics\StatisticsResults.cs" />
@@ -62,6 +64,10 @@
     <Compile Include="Models\Deduplication\DeduplicationStats.cs" />
     <Compile Include="Models\Deduplication\DeduplicationStatsResponse.cs" />
     <Compile Include="Models\FilePools\DefaultPolicy.cs" />
+    <Compile Include="Models\SmartQuotas\Quota.cs" />
+    <Compile Include="Models\SmartQuotas\QuotasResponse.cs" />
+    <Compile Include="Models\SmartQuotas\Thresholds.cs" />
+    <Compile Include="Models\SmartQuotas\Useage.cs" />
     <Compile Include="Models\SMB\Permission.cs" />
     <Compile Include="Models\SMB\Share.cs" />
     <Compile Include="Models\SMB\SharesResponse.cs" />
@@ -87,7 +93,6 @@
     <Folder Include="Models\HDFS\" />
     <Folder Include="Models\NFS\" />
     <Folder Include="Models\SmartLock\" />
-    <Folder Include="Models\SmartQuotas\" />
     <Folder Include="Models\Snapshots\" />
     <Folder Include="Models\StoragePools\" />
     <Folder Include="Models\SyncIQ\" />

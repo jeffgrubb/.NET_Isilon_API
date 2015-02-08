@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IsilonAPI.Models.SmartQuotas;
 
 namespace IsilonAPI.Requests
 {
@@ -14,6 +15,21 @@ namespace IsilonAPI.Requests
 
         }
 
-        // todo
+        public string GetQuotaSummary()
+        {
+            return Get<string>("/platform/1/quota/quotas-summary");
+        }
+
+        public string GetQuotasRaw()
+        {
+            return Get<string>("/platform/1/quota/quotas");
+        }
+
+        public Quota[] GetQuotas()
+        {
+            QuotasResponse resp = Get<QuotasResponse>("/platform/1/quota/quotas");
+
+            return resp.Quotas;
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace IsilonAPI.Requests
 
         }
 
+        // 0 for local node, nodeID for other nodes in the cluster
         public Statistic GetNodeStatistic(string key, string nodeID = null)
         {
             string queryString = "/platform/1/statistics/keys?key=\"" + key + "\"";
@@ -61,6 +62,13 @@ namespace IsilonAPI.Requests
             }
 
             return ret;
+        }
+
+        public Protocol[] GetProtocols()
+        {
+            ProtocolsResults stat = Get<ProtocolsResults>("/platform/1/statistics/protocols");
+
+            return stat.Protocols;
         }
     }
 }
