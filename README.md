@@ -11,19 +11,19 @@ The entry points into the API are defined in the IsilonAPI.Requests namespace. F
 
 # Example
 
-First create an IsilonService object. The constructor expects the credentials (User/Password) of the user account you wish to access the API with, the Url of the Isilon cluster, and a boolean variable indicating whether or not to ignore invalid SSL certificates.
+The first step is to create an instance of the IsilonService class. This class contains the authentication methods to the Isilon cluster. The constructor expects the credentials (User/Password) of the user account you wish to access the API with, the Url of the Isilon cluster, and a boolean variable indicating whether or not to ignore invalid SSL certificates (for testing).
 
 ```
 IsilonService service = new IsilonService("username", "password", "https://192.168.1.240:8080", true);
 ````
 
-Next you will need to create a request object that corresponds to one of the API resources. For example, if you want to get data about, or modify Smart Quotas, create an instance of the IsilonAPI.Requests.SmartQuotas class, and pass the IsilonService object as a parameter to the SmartQuotas constructor.
+Next you will need to create a request object that corresponds to one of the Isilon API resources. For example, if you want to get data on or modify Smart Quotas, create an instance of the IsilonAPI.Requests.SmartQuotas class, and pass the IsilonService object as a parameter to the SmartQuotas constructor.
 
 ````
 SmartQuotas quotas = new SmartQuotas(service);
 ````
 
-Now you can interact with the SmartQuotas resource using the methods provided by the SmartQuotas resource.
+Now you can view or modify the Isilon clusters Smart Quotas using the methods provided by the SmartQuotas resource.
 
 ```
 Quota[] quota = quotas.GetQuotas();
