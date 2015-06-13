@@ -1,9 +1,31 @@
 # Summary
 EMC Isilon is a scale-out NAS storage platform designed to be a powerful, simple, and efficient way to consolidate and manage enterprise data and applications. Isilon is a clustered storage system that consists of multiple independent nodes that are all integrated with the OneFS operating system. Nodes effectively pool all storage, compute, and network resources into a single entity capable of providing petabyte scale storage in a single namespace or filesystem. For organizations who wish to automate the administration tasks of OneFS, the platform provides a REST API. This project is a wrapper library written in C# .NET.
 
+# Installation
+
+Download the code to your local system, and include it as a class library in your solution. Set the project dependencies to include the IsilonAPI, so the code builds before your production code.
+
 # Using .NET Isilon API
 
-To use this code, download the project in its entirety and include a reference to the binary in your project. The entry points into the API are defined in the IsilonAPI.Requests namespace. For example, if your application requires automatically creating or modifying SMB shares, that functionality is located in the IsilonAPI.Requests.SMB class.
+The entry points into the API are defined in the IsilonAPI.Requests namespace. For example, if your application requires automatically creating or modifying SMB shares, that functionality is located in the IsilonAPI.Requests.SMB class.
+
+# Example
+
+First create an IsilonService object. The constructor expects the credentials (User/Password) of the user account you wish to access the API with, the Url of the Isilon cluster, and a boolean variable indicating whether or not to ignore invalid SSL certificates.
+
+> IsilonService service = new IsilonService("username", "password", "https://192.168.1.240:8080", true);
+
+Next you will need to create a request object that corresponds to one of the API resources. For example, if you want to get data about, or modify Smart Quotas, create an instance of the IsilonAPI.Requests.SmartQuotas class, and pass the IsilonService object as a parameter to the SmartQuotas constructor.
+
+> SmartQuotas quotas = new SmartQuotas(service);
+
+Now interact with the SmartQuotas resource using the methods provided by the SmartQuotas resource.
+
+> Quota[] quota = quotas.GetQuotas();
+> foreach(Quota q in quota)
+> {
+>     Console.WriteLine("Quota: " + q.Path + ", Type: " + q.Type);
+> }
 
 # Contributing
 
