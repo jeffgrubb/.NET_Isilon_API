@@ -14,7 +14,8 @@ namespace IsilonAPI
         public string IsilonUrl;
         public bool IgnoreInvalidCerts;
 
-        // public string AuthToken -- todo, Basic/Token authentication
+        // public string AuthToken -- TODO: Token authentication
+        // This code supports basic authentication only.
 
         public IsilonService(string username, string password, string isilonUrl, bool ignoreInvalidCerts)
         {

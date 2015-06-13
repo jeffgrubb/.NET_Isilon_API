@@ -3,7 +3,7 @@
  * Purpose:     Automate Isilon OneFS configuration by using REST API
  *
  * Author:      Jeff Grubb
- *              Associate Systems Engineer, EMC
+ *              Systems Engineer, EMC
  *              jeffrey.grubb@emc.com
  *
  * Version:     0.5
@@ -67,6 +67,9 @@ namespace IsilonAPI
 
             object content = default(T);
 
+            // This is really for debugging purposes
+            // Normally a data model should return, but if you want to view the raw 
+            // JSON object in string format, you can get a string as the return value
             if(typeof(T) == typeof(string))
             {
                 StreamReader reader = new StreamReader(response.GetResponseStream());
