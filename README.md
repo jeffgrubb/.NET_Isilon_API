@@ -21,13 +21,13 @@ Next you will need to create a request object that corresponds to one of the API
 
 Now interact with the SmartQuotas resource using the methods provided by the SmartQuotas resource.
 
-'''
+```
 Quota[] quota = quotas.GetQuotas();
 foreach(Quota q in quota)
 {
    Console.WriteLine("Quota: " + q.Path + ", Type: " + q.Type);
 }
-'''
+```
 
 # Contributing
 
