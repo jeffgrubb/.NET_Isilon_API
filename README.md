@@ -3,7 +3,7 @@ EMC Isilon is a scale-out NAS storage platform designed to be a powerful, simple
 
 # Installation
 
-Download the code to your local system, and include it as a class library in your solution. Set the project dependencies to include the IsilonAPI, so the code builds before your production code.
+Download the code to your local system, and include it as a class library in your solution. Set the project dependencies to include the IsilonAPI, and then include a reference to the library in your production code.
 
 # Using .NET Isilon API
 
